@@ -1,5 +1,5 @@
 // 判断按键的类型----判断方向
-function keyDirect(){	
+function keyDirect(){		
 	var keyNum = event.keyCode;
 	var dir ;
 	if(keyNum == 37){
@@ -12,12 +12,15 @@ function keyDirect(){
 		dir = 3;
 	}
 
-	switch(dir){
-		case 0:alert("左");break;
-		case 1:alert("上");break;
-		case 2:alert("右");break;
-		case 3:alert("下");break;
-	}
+
+	moveTo(dir);
+
+	// switch(dir){
+	// 	case 0:alert("左");break;
+	// 	case 1:alert("上");break;
+	// 	case 2:alert("右");break;
+	// 	case 3:alert("下");break;
+	// }
 }
 
 document.onkeydown = keyDirect;			// 键盘的按下事件
