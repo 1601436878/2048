@@ -1,4 +1,3 @@
-
 var numbercells = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 
 function init_block(){
@@ -12,6 +11,10 @@ function init_block(){
 		}
 	}
 
+	resetGrid();
+}
+
+function resetGrid(){
 	for(var i = 0 ; i < 4 ; i++){
 		for(var j = 0 ; j < 4 ; j++){
 			if(contain[i][j] == 0){
@@ -26,9 +29,11 @@ function init_block(){
 				numbercells[i][j].style.width = 100+"px";
 				numbercells[i][j].style.height = 100+"px";
 				numbercells[i][j].style.backgroundColor = "red";
+				var textNode = document.createTextNode(contain[i][j]);
+				numbercells[i][j].appendChild(textNode);
 			}
 
 			console.log("num:%d  x :%s  y:%s",contain[i][j],numbercells[i][j].style.left,numbercells[i][j].style.top)
 		}
-	}
+	}	
 }
