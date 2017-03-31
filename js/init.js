@@ -1,5 +1,7 @@
 var contain = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+var numbercells = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 var game_div = get_divs();
+
 
 // 获取16个小方格
 function get_divs(){
@@ -14,7 +16,7 @@ function get_divs(){
 	return data;
 }
 
-// 初始化游戏界面
+// 初始化4*4的游戏界面
 function init(){
 	for(var i = 0 ; i < 4 ; i++){
 		for(var j = 0 ; j < 4; j++){

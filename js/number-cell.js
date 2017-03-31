@@ -1,5 +1,4 @@
-var numbercells = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
-
+// 产生带数字的可移动方块
 function init_block(){
 	var father = document.getElementById("game-container");
 	for(var i = 0 ; i < 4 ; i++){
@@ -23,7 +22,6 @@ function resetGrid(){
 				numbercells[i][j].style.width = 0;
 				numbercells[i][j].style.height = 0;
 			}else{
-
 				numbercells[i][j].style.top = getPosTop(i,j)+"px";
 				numbercells[i][j].style.left = getPosLeft(i,j)+"px";
 				numbercells[i][j].style.width = 100+"px";
