@@ -46,6 +46,10 @@ function resetGrid(){
 		}
 	}
 
+	reFreshNum();		// 根据创建的位置，刷新界面
+}
+
+function reFreshNum(){
 	// 给所有的方块设定位置，有数字的方块加上样式，没有数字的方块的大小是0，位置一层方块的中心一点
 	for(var i = 0 ; i < 4 ; i++){
 		for(var j = 0 ; j < 4 ; j++){
@@ -66,7 +70,7 @@ function resetGrid(){
 
 			console.log("num:%d  x :%s  y:%s",contain[i][j],numbercells[i][j].style.left,numbercells[i][j].style.top)
 		}
-	}
+	}	
 }
 
 
@@ -91,6 +95,17 @@ function getPosTop(i,j){
 // 生成 x
 function getPosLeft(i,j){
 	return 20 + 120 * j;
+}
+
+function generateNode(){
+	var x = parseInt(Math.floor(Math.random()*4));
+	var y = parseInt(Math.floor(Math.random()*4));
+	while(contain[x][y] == 0){
+		var x = parseInt(Math.floor(Math.random()*4));
+		var y = parseInt(Math.floor(Math.random()*4));		
+	}
+
+	contain[x][y] = Math.random()>0.2 ?2:4;
 }
 
 
