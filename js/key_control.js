@@ -12,15 +12,31 @@ function keyDirect(){
 		dir = 3;
 	}
 
-
 	moveTo(dir);
+}
 
-	// switch(dir){
-	// 	case 0:alert("左");break;
-	// 	case 1:alert("上");break;
-	// 	case 2:alert("右");break;
-	// 	case 3:alert("下");break;
-	// }
+
+
+// 0:左 1:上  2:右  3:下
+function moveTo(dir){
+	switch (dir){
+		case 0: break;
+		case 1: break;
+		case 2: toRight(); break;
+		case 3: break;
+	}
+}
+
+// 判断是否可以移动
+function canMove(){
+	for(var i = 0 ; i < 4 ; i++){
+		for(var j = 1 ; j < 4 ; j++){
+			if(contain[i][j-1] == 0 || contain[i][j] == contain[i][j-1]){
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 document.onkeydown = keyDirect;			// 键盘的按下事件
