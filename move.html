@@ -1,0 +1,147 @@
+<html>
+
+<body>
+	<input type="button" value="Left" onclick="moveLeft(); show();"/>
+	<input type="button" value="right" onclick="moveRight(); show();"/>
+	<input type="button" value="up" onclick="moveUp(); show();"/>
+	<input type="button" value="down" onclick="moveDown(); show();"/>
+	
+	<div id="s"></div>
+	<script>
+	//	var data = [[2,2,2,2],[0,0,2,0],[2,0,2,0],[2,0,0,2]];
+	var data = [[8,8,2,0],[8,0,8,2],[8,0,2,8],[8,2,0,8]];
+		function show2(){
+			for(var i = 0 ; i < 4 ; i++){
+				for(var j = 0 ; j < 4 ; j++){
+					document.write(data[i][j]);
+				}
+			document.write("<br/>");
+			}
+		}
+		
+		function show(){
+			var s = document.getElementById("s");
+			s.innerHTML = "";
+			for(var i = 0 ; i < 4 ; i++){
+				for(var j = 0 ; j < 4 ; j++){
+					s.innerHTML += data[i][j]+"&nbsp;&nbsp;&nbsp;&nbsp;";
+				}
+			s.innerHTML += "<br/>";
+			}
+		}
+		
+		// 左移
+		function moveLeft (){
+			var i,j;  
+			for(i=0;i<4;i++){  
+				for(j=0;j<3;j++){  
+					if(data[i][j] == data[i][j+1]){
+						data[i][j] += data[i][j+1];
+						data[i][j+1] = 0 ;
+					}
+					clearLeft();
+				}
+			}
+		}
+		
+		// 右移
+		function moveRight (){
+			var i,j;  
+			for(i=0;i<4;i++){  
+				for(j=0;j<3;j++){  
+					if(data[i][j] == data[i][j+1]){
+						data[i][j+1] += data[i][j];
+						data[i][j] = 0 ;
+					}
+					clearRight();
+				}
+			}
+		}
+		
+		// 上移
+		function moveUp (){
+			var i,j;  
+			for(j=0;j<4;j++){  
+				for(i=0;i<3;i++){  
+					if(data[i][j] == data[i+1][j]){
+						data[i][j] += data[i+1][j];
+						data[i+1][j] = 0 ;
+					}
+					clearUp();
+				}
+			}
+		}	
+		
+		// 下移
+		function moveDown (){
+			var i,j;  
+			for(j=0;j<4;j++){  
+				for(i=3;i>0;i--){  
+					if(data[i][j] == data[i-1][j]){
+						data[i][j] += data[i-1][j];
+						data[i-1][j] = 0 ;
+					}
+					clearDown();
+				}
+			}
+		}		
+
+	function clearRight(){
+		for(var i = 0 ; i < 4 ; i++){
+			for(var j = 3 ; j >= 0  ; j-- ){
+				for(var k = j ; k < 4  ; k++ ){
+					if(data[i][j]!= 0 && data[i][k] == 0){
+						data[i][k] = data[i][j];
+						data[i][j] = 0 ;
+					}
+				}
+			}
+		}
+	}
+	
+	// 清0
+	function clearLeft(){
+		for(var i = 0 ; i < 4 ; i++){
+			for(var j = 0 ; j < 4  ; j++){
+				for(var k = j ; k >= 0 ; k-- ){
+					if(data[i][j]!= 0 && data[i][k] == 0){
+						data[i][k] = data[i][j];
+						data[i][j] = 0 ;
+					}
+				}
+			}
+		}
+	}
+
+	function clearUp(){
+		for(var j = 0 ; j < 4 ; j++){
+			for(var i = 0 ; i <4  ; i++){
+				for(var k = i ; k >=0  ; k-- ){
+					if(data[i][j]!= 0 && data[k][j] == 0){
+						data[k][j] = data[i][j];
+						data[i][j] = 0 ;
+					}
+				}
+			}
+		}
+	}
+
+	function clearDown(){
+		for(var j = 0 ; j < 4 ; j++){
+			for(var i = 3 ; i >= 0 ; i--){
+				for(var k = i ; k < 4 ; k++ ){
+					if(data[i][j]!= 0 && data[k][j] == 0){
+						data[k][j] = data[i][j];
+						data[i][j] = 0 ;
+					}
+				}
+			}
+		}
+	}	
+	show();
+	
+		
+		
+	</script>
+</body>
+</html>

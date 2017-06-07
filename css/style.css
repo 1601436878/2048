@@ -16,6 +16,13 @@ a{
 	background-color:#FAF8EF;
 	margin:auto;
 }
+.header{
+	margin-left:30px;
+}
+.title{
+	margin-left:30px;
+}
+
 #container h1{
 	font-size: 60px;
 	margin-left:20px;
@@ -45,11 +52,11 @@ a{
 	height:460px;
 	padding:20px;
 
-	marign:50px auto;
+	margin: 20px auto;
 	position:relative;
 
 	background-color:#BBADA0;
-	/* border-radius:10px; */
+	border-radius:10px; 
 }
 
 .game-container .game-col{
@@ -58,8 +65,7 @@ a{
 	
 	position:absolute;
 	background-color:#CDC1B4;
-
-/*	border-radius:8px;	*/
+	border-radius: 8px;	
 }
 
 .number-cell {
@@ -70,11 +76,13 @@ a{
 	text-align:center;
 
 	position:absolute;
+	border-radius:8px;
 }
 
 
 .end{
 	margin-top:40px;
+	margin-bottom:500px;
 	text-align:center;
 	font-size:30px;
 	color:#666;
